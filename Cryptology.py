@@ -175,8 +175,31 @@ def VEncrypt():
     print "Please enter the text you want to encrypt\n"
     
     PlainText = raw_input()
+
+    TextLength = len(PlainText)
     
     PlainChars = list(PlainText)
+    
+    os.system('clear')
+
+    print "Do you want to use a Random key word or use your own?\n\n[1] Use Random\n\n[2] Use your own\n"
+
+    KeyDec = raw_input()
+    
+    if KeyDec == "2":
+        print "\nPlease enter your keyword\n"
+        KeyWord = raw_input()
+
+    KeyLength = len(KeyWord)
+
+    Keybets = []
+
+    BetNum = int(math.ceil(TextLength / float(KeyLength)))
+    
+    for i in range (1, (BetNum + 1)):
+        Keybets.append(PlainText[((i-1)*(int(KeyLength))):(i*(int(KeyLength)))]) 
+
+    print Keybets
 
 def CShift():
 
